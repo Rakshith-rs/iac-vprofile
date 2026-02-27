@@ -61,7 +61,7 @@ jobs:
       - name: Terraform Apply
         id: apply
         if: ${{ github.ref == 'refs/heads/main' && steps.plan.outcome == 'success' }}
-        run: terraform apply -auto-approve -no-color tfplan -input=false -parallelism=1 tfplan
+        run: terraform apply -auto-approve -no-color -input=false -parallelism=1 tfplan
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
